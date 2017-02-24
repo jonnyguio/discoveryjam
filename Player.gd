@@ -20,6 +20,7 @@ func _fixed_process(delta):
 	
 	var motion = velocity * delta
 	motion = move(motion)
+
 	
 	if (is_colliding()):
 		var n = get_collision_normal()
