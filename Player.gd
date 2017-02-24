@@ -34,7 +34,7 @@ func _fixed_process(delta):
 		get_node("AnimationPlayer").set_active(true)
 	else:
 		get_node("AnimationPlayer").set_active(false)
-	
+
 func _input(event):
 	if (event.is_action_pressed("ui_left")):
 		velocity.x += -1 * speedBase
