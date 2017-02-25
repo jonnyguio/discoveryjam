@@ -47,6 +47,8 @@ func updateControl():
 	if (InputSingleton.isKeyBeingPressed("ui_right")):
 		velocity.x = 1 * speedBase
 		set_scale(Vector2(1, 1))
+	if (!InputSingleton.isKeyBeingPressed("ui_left") and !InputSingleton.isKeyBeingPressed("ui_right")):
+		velocity.x = 0
 	if (InputSingleton.isKeyBeingPressed("ui_up")):
 		if (jumps > 0):
 			velocity.y = -3 * speedBase
