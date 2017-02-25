@@ -96,7 +96,6 @@ script/script = SubResource( 1 )
 
 [node name="VBoxContainer" type="GridContainer" parent="Options"]
 
-editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -123,7 +122,7 @@ margin/bottom = 8.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "99"
+text = "1"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -142,7 +141,7 @@ margin/bottom = 8.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "99"
+text = "2"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -161,7 +160,7 @@ margin/bottom = 8.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "99"
+text = "3"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -180,7 +179,7 @@ margin/bottom = 8.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "99"
+text = "4"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
@@ -199,216 +198,7 @@ margin/bottom = 32.0
 custom_fonts/font = ExtResource( 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="6" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 32.0
-margin/top = 24.0
-margin/right = 48.0
-margin/bottom = 32.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="7" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 64.0
-margin/top = 24.0
-margin/right = 80.0
-margin/bottom = 32.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="8" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 96.0
-margin/top = 24.0
-margin/right = 112.0
-margin/bottom = 32.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="9" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 48.0
-margin/right = 16.0
-margin/bottom = 56.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="10" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 32.0
-margin/top = 48.0
-margin/right = 48.0
-margin/bottom = 56.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="11" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 64.0
-margin/top = 48.0
-margin/right = 80.0
-margin/bottom = 56.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="12" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 96.0
-margin/top = 48.0
-margin/right = 112.0
-margin/bottom = 56.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="13" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 0.0
-margin/top = 72.0
-margin/right = 16.0
-margin/bottom = 80.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="14" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 32.0
-margin/top = 72.0
-margin/right = 48.0
-margin/bottom = 80.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="15" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 64.0
-margin/top = 72.0
-margin/right = 80.0
-margin/bottom = 80.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
-percent_visible = 1.0
-lines_skipped = 0
-max_lines_visible = -1
-
-[node name="16" type="Label" parent="Options/VBoxContainer"]
-
-rect/min_size = Vector2( 16, 0 )
-focus/ignore_mouse = true
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 0
-margin/left = 96.0
-margin/top = 72.0
-margin/right = 112.0
-margin/bottom = 80.0
-custom_fonts/font = ExtResource( 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
-custom_constants/shadow_as_outline = 1
-text = "99"
+text = "5"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
