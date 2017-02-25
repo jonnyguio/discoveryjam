@@ -39,7 +39,8 @@ func _fixed_process(delta):
 	
 	var collider = get_node("Sprite").get_node("RayCast2D").get_collider()
 	if (collider and is_colliding() and collider.get_type() == "KinematicBody2D"):
-		collider.moveBlock(velocity, delta)
+		if (collider.get_name() == "PushableBlock"):
+			collider.moveBlock(velocity, delta)
 	
 func updateControl():
 	if (InputSingleton.isKeyBeingPressed("ui_left")):

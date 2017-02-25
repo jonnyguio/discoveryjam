@@ -1,15 +1,16 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
 [ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=2]
-[ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=3]
-[ext_resource path="res://PushableBlock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Luz.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Tilemaps/All.tres" type="TileSet" id=3]
+[ext_resource path="res://LightBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://PushableBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Luz.tscn" type="PackedScene" id=7]
 
 [sub_resource type="GDScript" id=1]
 
-script/source = "extends Node2D\n\n# class member variables go here, for example:\n# var a = 2\n# var b = \"textvar\"\n\nonready var light_only = load(\"res://Templates/onlyLight.tres\")\nfunc _ready():\n\tget_node(\"bg\").set_use_parent_material(true)\n\tget_node(\"TileMap\").get_tileset().tile_set_material( 0 , light_only )\n\tpass\n"
+script/source = "extends Node2D\n\n# class member variables go here, for example:\n# var a = 2\n# var b = \"textvar\"\n\nonready var light_only = load(\"res://Templates/onlyLight.tres\")\nfunc _ready():\n\tget_node(\"bg\").set_use_parent_material(true)\n\tget_node(\"PushableBlock\").set_use_parent_material(true)\n\tget_node(\"PushableBlock\").get_node(\"Sprite\").set_use_parent_material(true)\n\tget_node(\"Lightblocks\").set_use_parent_material(true)\n\tget_node(\"TileMap\").get_tileset().tile_set_material(0 , light_only )\n\tget_node(\"TileMap\").get_tileset().tile_set_material(2 , light_only )\n\tpass\n"
 
 [sub_resource type="GDScript" id=2]
 
@@ -46,7 +47,57 @@ collision/bounce = 0.0
 collision/layers = 1
 collision/mask = 1
 occluder/light_mask = 1
-tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 65536, 0, 65559, 0, 131072, 0, 131095, 0, 196608, 0, 196631, 0, 262144, 0, 262167, 0, 327680, 0, 327695, 0, 327703, 0, 393216, 0, 393231, 0, 393239, 0, 458752, 0, 458765, 0, 458766, 0, 458767, 0, 458775, 0, 524288, 0, 524301, 0, 524302, 0, 524303, 0, 524311, 0, 589824, 0, 589847, 0, 655360, 0, 655364, 0, 655365, 0, 655366, 0, 655378, 0, 655379, 0, 655380, 0, 655383, 0, 720896, 0, 720900, 0, 720901, 0, 720902, 0, 720919, 0, 786432, 0, 786436, 0, 786437, 0, 786438, 0, 786455, 0, 851968, 0, 851969, 0, 851970, 0, 851971, 0, 851972, 0, 851973, 0, 851974, 0, 851975, 0, 851976, 0, 851977, 0, 851978, 0, 851979, 0, 851980, 0, 851981, 0, 851982, 0, 851983, 0, 851984, 0, 851985, 0, 851986, 0, 851987, 0, 851988, 0, 851989, 0, 851990, 0, 851991, 0, 917504, 0, 917505, 0, 917506, 0, 917507, 0, 917508, 0, 917509, 0, 917510, 0, 917511, 0, 917512, 0, 917513, 0, 917514, 0, 917515, 0, 917516, 0, 917517, 0, 917518, 0, 917519, 0, 917520, 0, 917521, 0, 917522, 0, 917523, 0, 917524, 0, 917525, 0, 917526, 0, 917527, 0, 983040, 0, 983041, 0, 983042, 0, 983043, 0, 983044, 0, 983045, 0, 983046, 0, 983047, 0, 983048, 0, 983049, 0, 983050, 0, 983051, 0, 983052, 0, 983053, 0, 983054, 0, 983055, 0, 983056, 0, 983057, 0, 983058, 0, 983059, 0, 983060, 0, 983061, 0, 983062, 0, 983063, 0 )
+tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 27, 0, 28, 0, 29, 0, 30, 0, 31, 0, 32, 0, 33, 0, 65536, 0, 65569, 0, 131072, 0, 131105, 0, 196608, 0, 196641, 0, 262144, 0, 262177, 0, 327680, 0, 327713, 0, 393216, 0, 393249, 0, 458752, 0, 458785, 0, 524288, 0, 524321, 0, 589824, 0, 589857, 0, 655360, 0, 655393, 0, 720896, 0, 720929, 0, 786432, 0, 786465, 0, 851968, 0, 851969, 0, 851970, 0, 851971, 0, 851972, 0, 851973, 0, 851974, 0, 851975, 0, 851976, 0, 851977, 0, 851978, 0, 851979, 0, 851980, 0, 851981, 0, 851982, 0, 851983, 0, 851984, 0, 851985, 0, 851986, 0, 851987, 0, 851988, 0, 851989, 0, 851990, 0, 851991, 0, 851992, 0, 851993, 0, 851994, 0, 851995, 0, 851996, 0, 851997, 0, 851998, 0, 851999, 0, 852000, 0, 852001, 0, 917504, 0, 917505, 0, 917506, 0, 917507, 0, 917508, 0, 917509, 0, 917510, 0, 917511, 0, 917512, 0, 917513, 0, 917514, 0, 917515, 0, 917516, 0, 917517, 0, 917518, 0, 917519, 0, 917520, 0, 917521, 0, 917522, 0, 917523, 0, 917524, 0, 917525, 0, 917526, 0, 917527, 0, 917528, 0, 917529, 0, 917530, 0, 917531, 0, 917532, 0, 917533, 0, 917534, 0, 917535, 0, 917536, 0, 917537, 0, 983040, 0, 983041, 0, 983042, 0, 983043, 0, 983044, 0, 983045, 0, 983046, 0, 983047, 0, 983048, 0, 983049, 0, 983050, 0, 983051, 0, 983052, 0, 983053, 0, 983054, 0, 983055, 0, 983056, 0, 983057, 0, 983058, 0, 983059, 0, 983060, 0, 983061, 0, 983062, 0, 983063, 0, 983064, 0, 983065, 0, 983066, 0, 983067, 0, 983068, 0, 983069, 0, 983070, 0, 983071, 0, 983072, 0, 983073, 0 )
+
+[node name="Lightblocks" type="Node2D" parent="Level"]
+
+transform/pos = Vector2( 752, 48 )
+
+[node name="LightBlock" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+[node name="LightBlock1" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 32 )
+
+[node name="LightBlock2" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 64 )
+
+[node name="LightBlock3" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 96 )
+
+[node name="LightBlock4" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 128 )
+
+[node name="LightBlock5" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 160 )
+
+[node name="LightBlock6" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 192 )
+
+[node name="LightBlock7" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 224 )
+
+[node name="LightBlock8" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 256 )
+
+[node name="LightBlock9" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 288 )
+
+[node name="LightBlock10" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 320 )
+
+[node name="LightBlock11" parent="Level/Lightblocks" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 0, 352 )
 
 [node name="bg" type="Sprite" parent="Level"]
 
@@ -55,18 +106,18 @@ transform/scale = Vector2( 0.5, 0.5 )
 z/z = -100
 texture = ExtResource( 2 )
 
-[node name="PushableBlock" parent="Level" instance=ExtResource( 4 )]
+[node name="PushableBlock" parent="Level" instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 504.6, 380.599 )
 transform/scale = Vector2( 1, 1 )
 
 [node name="Players" type="Node" parent="."]
 
-[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 5 )]
+[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 288, 160 )
 
-[node name="Luz" parent="Players" instance=ExtResource( 6 )]
+[node name="Luz" parent="Players" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 160, 96 )
 
