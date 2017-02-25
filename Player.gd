@@ -52,14 +52,14 @@ func updateAnimation():
 			get_node("Sprites/Foots/FootsAnimator").play("standing")
 
 func updateControl():
-	if (InputSingleton.isKeyBeingPressed("1_left")):
-		velocity.x = -1 * speedBase
-		set_scale(Vector2(-1, 1))
-	if (InputSingleton.isKeyBeingPressed("1_right")):
-		velocity.x = 1 * speedBase
-		set_scale(Vector2(1, 1))
-	if (!InputSingleton.isKeyBeingPressed("1_left") and !InputSingleton.isKeyBeingPressed("ui_right")):
-		velocity.x = 0
+	velocity.x = 0
+	if (abs(Input.get_joy_axis(1, 0)) > 0.5):
+		if (InputSingleton.isKeyBeingPressed("1_left")):
+			velocity.x = -1 * speedBase
+			set_scale(Vector2(-1, 1))
+		if (InputSingleton.isKeyBeingPressed("1_right")):
+			velocity.x = 1 * speedBase
+			set_scale(Vector2(1, 1))
 	if (InputSingleton.isKeyBeingPressed("1_up")):
 		if (jumps > 0):
 			velocity.y = -3 * speedBase

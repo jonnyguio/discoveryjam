@@ -9,16 +9,13 @@
 [ext_resource path="res://Player.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Luz.tscn" type="PackedScene" id=8]
 [ext_resource path="res://LightTarget.gd" type="Script" id=9]
-[ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=10]
+[ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.8903, 25.2727 )
-
-[sub_resource type="GDScript" id=2]
-
-script/source = "extends Camera2D\n\nvar player1\n\nfunc _ready():\n\tvar players = get_tree().get_nodes_in_group(\"Player1\")\n\tif( players.size() > 0 ):\n\t\tplayer1 = players[0]\n\t\n\tset_process(true)\n\n\nfunc _process(delta):\n\tset_global_pos( player1.get_global_pos() )\n\n"
 
 [node name="Scenario" type="Node"]
 
@@ -129,30 +126,11 @@ script/script = ExtResource( 9 )
 
 [node name="Camera" type="Node" parent="."]
 
-[node name="Camera2D" type="Camera2D" parent="Camera"]
-
-transform/pos = Vector2( 320, 256 )
-anchor_mode = 1
-rotating = false
-current = true
-zoom = Vector2( 1, 1 )
-limit/left = 0
-limit/top = 0
-limit/right = 10000000
-limit/bottom = 10000000
-drag_margin/h_enabled = true
-drag_margin/v_enabled = true
-smoothing/enable = false
-smoothing/speed = 5.0
-drag_margin/left = 0.2
-drag_margin/top = 0.2
-drag_margin/right = 0.2
-drag_margin/bottom = 0.2
-script/script = SubResource( 2 )
+[node name="Camera2D" parent="Camera" instance=ExtResource( 10 )]
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 10 )
+stream/stream = ExtResource( 11 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 10.0
