@@ -33,14 +33,8 @@ func _fixed_process(delta):
 		
 	updateControl()
 	
-	if (get_scale().x > 0):
-		get_node("RayCast2D").set_cast_to(Vector2(10, 0))
-		get_node("RayCast2D").set_pos(Vector2(30, 0))
-	else:
-		get_node("RayCast2D").set_cast_to(Vector2(-10, 0))
-		get_node("RayCast2D").set_pos(Vector2(-30, 0))
-	var collider = get_node("RayCast2D")
-	if (collider.is_colliding() and collider.get_type() == "KinematicBody2D"):
+	var collider = get_node("Sprite").get_node("RayCast2D").get_collider()
+	if (collider and is_colliding() and collider.get_type() == "KinematicBody2D"):
 		collider.moveBlock(velocity, delta)
 	
 func updateControl():

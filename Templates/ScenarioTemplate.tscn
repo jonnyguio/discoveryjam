@@ -87,4 +87,8 @@ drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = SubResource( 1 )
 
+[node name="PushableBlock" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 519.668, 382.271 )
+
 
