@@ -60,10 +60,11 @@ func updateControl():
 		if (InputSingleton.isKeyBeingPressed("1_right")):
 			velocity.x = 1 * speedBase
 			set_scale(Vector2(1, 1))
-	if (InputSingleton.isKeyBeingPressed("1_up")):
-		if (jumps > 0):
-			velocity.y = -3 * speedBase
-			jumps -= 1
+	if (abs(Input.get_joy_axis(1, 1)) > 0.5):
+		if (InputSingleton.isKeyBeingPressed("1_up")):
+			if (jumps > 0):
+				velocity.y = -3 * speedBase
+				jumps -= 1
 
 func isOnFloor():
 	return get_node("floorChecker").is_colliding()

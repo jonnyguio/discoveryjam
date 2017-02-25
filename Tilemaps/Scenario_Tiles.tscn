@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://Textures/tile_castle.tex" type="Texture" id=1]
 [ext_resource path="res://Textures/light.tex" type="Texture" id=2]
 [ext_resource path="res://Textures/darkness.tex" type="Texture" id=3]
+[ext_resource path="res://Textures/darkness2.tex" type="Texture" id=4]
+[ext_resource path="res://Textures/portal.tex" type="Texture" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -56,8 +58,15 @@ region_rect = Rect2( 0, 0, 32, 32 )
 
 visibility/light_mask = 3
 transform/pos = Vector2( 208, 16 )
-texture = ExtResource( 3 )
-modulate = Color( 0.855469, 0.253967, 0.253967, 1 )
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
+[node name="5" type="Sprite" parent="."]
+
+visibility/light_mask = 3
+transform/pos = Vector2( 272, 16 )
+texture = ExtResource( 5 )
+region = true
 region_rect = Rect2( 0, 0, 32, 32 )
 
 

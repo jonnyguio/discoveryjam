@@ -37,5 +37,6 @@ func onBodyExit(obj):
 		obj.get_node("CollisionShape2D").set_trigger( true )
 		obj.set_hidden( true )
 	if( obj.is_in_group("DarknessBlock") ):
-		obj.get_node("CollisionShape2D").set_trigger(false)
-		obj.set_hidden(false)
+		obj.get_node("CollisionShape2D").set_trigger(false)	
+		if (obj.appear):
+			obj.set_hidden(false)
