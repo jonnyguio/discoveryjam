@@ -1,6 +1,11 @@
-[gd_scene load_steps=3 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://8x8font.fnt" type="BitmapFont" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+
+[sub_resource type="GDScript" id=2]
+
+script/source = "extends Node2D\n\nvar cursor\nvar x = 0\nvar y = 0\n\nfunc _ready():\n\tcursor = get_node(\"cursor\")\n\tset_hidden(true)\n\tset_process(false)\n\nfunc openOptions():\n\tset_hidden(false)\n\tset_process(true)\n\n#ta nojento fodase\nfunc _process(delta):\n\tif( InputSingleton.wasKeyPressedNow(\"ui_right\") ):\n\t\tx += 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_left\") ):\n\t\tx -= 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_down\") ):\n\t\ty += 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_up\") ):\n\t\ty -= 1\n\t\n\tif( x < 0 ):\n\t\tx = 0\n\telif( x > 3 ):\n\t\tx = 3\n\tif(y < 0 ):\n\t\ty = 0\n\telif( y > 3 ):\n\t\ty = 3\n\t\n\tcursor.set_pos( Vector2(32*x,24*y) )\n\t\n\tif( InputSingleton.wasKeyPressedNow(\"Z\") ):\n\t\tprint(\"abri fase x= \", x , \" e y = \" , y )\n\t\tget_tree().get_root().get_node(\"IntroScreen\").queue_free()\n\t\n\t\n\t\n\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 
 [sub_resource type="Animation" id=1]
 
@@ -27,7 +32,12 @@ tracks/3/type = "value"
 tracks/3/path = NodePath("Particles2D:config/emitting")
 tracks/3/interp = 1
 tracks/3/imported = false
-tracks/3/keys = { "times":FloatArray( 2.8, 3 ), "transitions":FloatArray( 1, 1 ), "update":1, "values":[ false, true ] }
+tracks/3/keys = { "times":FloatArray( 0, 2.8, 3 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ false, false, true ] }
+tracks/4/type = "method"
+tracks/4/path = NodePath("Options")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 3 ), "transitions":FloatArray( 1 ), "values":[ { "args":[  ], "method":"openOptions" } ] }
 
 [node name="IntroScreen" type="Node"]
 
@@ -37,6 +47,7 @@ transform/pos = Vector2( 288, 160 )
 config/amount = 120
 config/lifetime = 3.0
 config/time_scale = 2.0
+config/emitting = false
 config/half_extents = Vector2( 200, 25 )
 params/direction = 0.0
 params/spread = 180.0
@@ -58,8 +69,7 @@ randomness/direction = 1.0
 
 [node name="Title" type="Node2D" parent="."]
 
-transform/pos = Vector2( -496, -208 )
-transform/scale = Vector2( 2.5, 2.5 )
+transform/rot = -75.639
 
 [node name="Label" type="Label" parent="Title"]
 
@@ -82,21 +92,30 @@ max_lines_visible = -1
 
 [node name="Options" type="Node2D" parent="."]
 
+transform/pos = Vector2( 257, 253 )
+script/script = SubResource( 2 )
+
+[node name="cursor" type="Sprite" parent="Options"]
+
+transform/rot = 43.2165
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
+
 [node name="VBoxContainer" type="GridContainer" parent="Options"]
 
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
 size_flags/vertical = 2
-margin/left = 256.0
-margin/top = 256.0
-margin/right = 368.0
-margin/bottom = 480.0
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 112.0
+margin/bottom = 224.0
 custom_constants/vseparation = 16
 custom_constants/hseparation = 16
 columns = 4
 
-[node name="Label" type="Label" parent="Options/VBoxContainer"]
+[node name="1" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -115,7 +134,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label1" type="Label" parent="Options/VBoxContainer"]
+[node name="2" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -134,7 +153,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label2" type="Label" parent="Options/VBoxContainer"]
+[node name="3" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -153,7 +172,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label3" type="Label" parent="Options/VBoxContainer"]
+[node name="4" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -172,7 +191,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label4" type="Label" parent="Options/VBoxContainer"]
+[node name="5" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -191,7 +210,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label5" type="Label" parent="Options/VBoxContainer"]
+[node name="6" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -210,7 +229,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label6" type="Label" parent="Options/VBoxContainer"]
+[node name="7" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -229,7 +248,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label7" type="Label" parent="Options/VBoxContainer"]
+[node name="8" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -248,7 +267,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label8" type="Label" parent="Options/VBoxContainer"]
+[node name="9" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -267,7 +286,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label9" type="Label" parent="Options/VBoxContainer"]
+[node name="10" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -286,7 +305,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label10" type="Label" parent="Options/VBoxContainer"]
+[node name="11" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -305,7 +324,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label11" type="Label" parent="Options/VBoxContainer"]
+[node name="12" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -324,7 +343,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label12" type="Label" parent="Options/VBoxContainer"]
+[node name="13" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -343,7 +362,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label13" type="Label" parent="Options/VBoxContainer"]
+[node name="14" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -362,7 +381,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label14" type="Label" parent="Options/VBoxContainer"]
+[node name="15" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -381,7 +400,7 @@ percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
 
-[node name="Label15" type="Label" parent="Options/VBoxContainer"]
+[node name="16" type="Label" parent="Options/VBoxContainer"]
 
 rect/min_size = Vector2( 16, 0 )
 focus/ignore_mouse = true
@@ -409,6 +428,6 @@ anims/1 = SubResource( 1 )
 playback/active = true
 playback/speed = 0.5
 blend_times = [  ]
-autoplay = ""
+autoplay = "1"
 
 
