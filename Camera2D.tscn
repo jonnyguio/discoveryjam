@@ -1,10 +1,8 @@
 [gd_scene load_steps=2 format=1]
 
-[sub_resource type="GDScript" id=2]
+[ext_resource path="res://Camera.gd" type="Script" id=1]
 
-script/source = "extends Camera2D\n\nvar player1\n\nfunc _ready():\n\tvar players = get_tree().get_nodes_in_group(\"Player1\")\n\tif( players.size() > 0 ):\n\t\tplayer1 = players[0]\n\t\n\tset_process(true)\n\n\nfunc _process(delta):\n\tset_global_pos( player1.get_global_pos() )\n\n"
-
-[node name="Camera2D" type="Camera2D"]
+[node name="Camera2D" type="Camera2D" groups=[ "Camera" ]]
 
 transform/pos = Vector2( 320, 256 )
 anchor_mode = 1
@@ -23,6 +21,6 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-script/script = SubResource( 2 )
+script/script = ExtResource( 1 )
 
 

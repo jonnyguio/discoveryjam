@@ -8,10 +8,15 @@ const FINISH_BLOCK = 3
 # var a = 2
 # var b = "textvar"
 
+export (String) var nextLevelPath
+export (PackedScene) var streamPlayer
+
 onready var light_only = load("res://Templates/onlyLight.tres")
 func _ready():
 	get_node("bg").set_use_parent_material(true)
 	get_node("TileMap").get_tileset().tile_set_material(0 , light_only )
+	
+	add_child(streamPlayer.instance())
 	
 	set_process(true)
 	
@@ -26,7 +31,7 @@ func setBlocks():
 	for x in range( 0 , 100 ):
 		for y in range( 0 , 100):
 			var tile = get_node("TileMap").get_cell( x , y )
-			if( tile > 1 ):
+			if( tile > 0 ):
 				get_node("TileMap").set_cell(x , y , -1 )
 				var inst
 				if( tile == LIGHT_BLOCK ):

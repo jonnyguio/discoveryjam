@@ -2,13 +2,13 @@
 
 [ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
 [ext_resource path="res://LevelSetter.gd" type="Script" id=2]
-[ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=3]
-[ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=4]
-[ext_resource path="res://Textures/whitebox.tex" type="Texture" id=5]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Luz.tscn" type="PackedScene" id=7]
-[ext_resource path="res://LightTarget.gd" type="Script" id=8]
-[ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=9]
+[ext_resource path="res://MainStreamPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=4]
+[ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=5]
+[ext_resource path="res://Textures/whitebox.tex" type="Texture" id=6]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Luz.tscn" type="PackedScene" id=8]
+[ext_resource path="res://LightTarget.gd" type="Script" id=9]
 
 [sub_resource type="GDScript" id=1]
 
@@ -20,13 +20,15 @@ script/source = "extends Camera2D\n\nvar player1\n\nfunc _ready():\n\tvar player
 
 material/material = ExtResource( 1 )
 script/script = ExtResource( 2 )
+nextLevelPath = "res://Levels/5.tscn"
+streamPlayer = ExtResource( 3 )
 
 [node name="darkbg" type="Sprite" parent="Level"]
 
 transform/pos = Vector2( 581.5, 361 )
 transform/scale = Vector2( 0.5, 0.5 )
 z/z = -100
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 modulate = Color( 0, 0, 0, 1 )
 
 [node name="TileMap" type="TileMap" parent="Level"]
@@ -34,7 +36,7 @@ modulate = Color( 0, 0, 0, 1 )
 visibility/light_mask = 3
 transform/pos = Vector2( 2, 0 )
 mode = 0
-tile_set = ExtResource( 4 )
+tile_set = ExtResource( 5 )
 cell/size = Vector2( 32, 32 )
 cell/quadrant_size = 16
 cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
@@ -47,7 +49,7 @@ collision/bounce = 0.0
 collision/layers = 1024
 collision/mask = 0
 occluder/light_mask = 1
-tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 27, 0, 28, 0, 29, 0, 30, 0, 31, 0, 32, 0, 33, 0, 65536, 0, 65563, 2, 65564, 1, 65569, 0, 131072, 0, 131099, 2, 131100, 1, 131105, 0, 196608, 0, 196635, 2, 196636, 1, 196641, 0, 262144, 0, 262171, 2, 262172, 1, 262177, 0, 327680, 0, 327701, 1, 327702, 1, 327703, 1, 327704, 1, 327707, 2, 327708, 1, 327713, 0, 393216, 0, 393236, 1, 393237, 1, 393238, 1, 393239, 1, 393240, 1, 393243, 2, 393244, 1, 393249, 0, 458752, 0, 458772, 1, 458773, 1, 458785, 0, 524288, 0, 524308, 2, 524309, 2, 524321, 0, 589824, 0, 589844, 2, 589845, 2, 589857, 0, 655360, 0, 655380, 2, 655381, 2, 655393, 0, 720896, 0, 720916, 2, 720917, 2, 720929, 0, 786432, 0, 786452, 1, 786453, 1, 786465, 0, 851968, 0, 851988, 1, 851989, 1, 852001, 0, 917504, 0, 917524, 1, 917525, 1, 917537, 0, 983040, 0, 983060, 2, 983061, 2, 983073, 0, 1048576, 0, 1048596, 2, 1048597, 2, 1048609, 0, 1114112, 0, 1114132, 2, 1114133, 2, 1114145, 0, 1179648, 0, 1179649, 0, 1179668, 2, 1179669, 2, 1179681, 0, 1245184, 0, 1245185, 0, 1245186, 0, 1245204, 1, 1245205, 1, 1245216, 0, 1245217, 0, 1310720, 0, 1310721, 0, 1310722, 0, 1310723, 0, 1310724, 0, 1310725, 0, 1310726, 0, 1310727, 0, 1310728, 0, 1310729, 0, 1310730, 0, 1310731, 0, 1310732, 0, 1310733, 0, 1310734, 0, 1310735, 0, 1310736, 0, 1310737, 0, 1310738, 0, 1310739, 0, 1310740, 0, 1310741, 0, 1310742, 0, 1310743, 0, 1310744, 0, 1310745, 0, 1310746, 0, 1310747, 0, 1310748, 0, 1310749, 0, 1310750, 0, 1310751, 0, 1310752, 0, 1310753, 0 )
+tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 27, 0, 28, 0, 29, 0, 30, 0, 31, 0, 32, 0, 33, 0, 65536, 0, 65563, 2, 65564, 1, 65569, 0, 131072, 0, 131099, 2, 131100, 1, 131105, 0, 196608, 0, 196635, 2, 196636, 1, 196638, 3, 196639, 3, 196641, 0, 262144, 0, 262171, 2, 262172, 1, 262174, 3, 262175, 3, 262177, 0, 327680, 0, 327701, 1, 327702, 1, 327703, 1, 327704, 1, 327707, 2, 327708, 1, 327713, 0, 393216, 0, 393236, 1, 393237, 1, 393238, 1, 393239, 1, 393240, 1, 393243, 2, 393244, 1, 393249, 0, 458752, 0, 458772, 1, 458773, 1, 458785, 0, 524288, 0, 524308, 2, 524309, 2, 524321, 0, 589824, 0, 589844, 2, 589845, 2, 589857, 0, 655360, 0, 655380, 2, 655381, 2, 655393, 0, 720896, 0, 720916, 2, 720917, 2, 720929, 0, 786432, 0, 786452, 1, 786453, 1, 786465, 0, 851968, 0, 851988, 1, 851989, 1, 852001, 0, 917504, 0, 917524, 1, 917525, 1, 917537, 0, 983040, 0, 983060, 2, 983061, 2, 983073, 0, 1048576, 0, 1048596, 2, 1048597, 2, 1048609, 0, 1114112, 0, 1114132, 2, 1114133, 2, 1114145, 0, 1179648, 0, 1179649, 0, 1179668, 2, 1179669, 2, 1179681, 0, 1245184, 0, 1245185, 0, 1245186, 0, 1245204, 1, 1245205, 1, 1245216, 0, 1245217, 0, 1310720, 0, 1310721, 0, 1310722, 0, 1310723, 0, 1310724, 0, 1310725, 0, 1310726, 0, 1310727, 0, 1310728, 0, 1310729, 0, 1310730, 0, 1310731, 0, 1310732, 0, 1310733, 0, 1310734, 0, 1310735, 0, 1310736, 0, 1310737, 0, 1310738, 0, 1310739, 0, 1310740, 0, 1310741, 0, 1310742, 0, 1310743, 0, 1310744, 0, 1310745, 0, 1310746, 0, 1310747, 0, 1310748, 0, 1310749, 0, 1310750, 0, 1310751, 0, 1310752, 0, 1310753, 0 )
 
 [node name="bg" type="Sprite" parent="Level"]
 
@@ -55,7 +57,7 @@ visibility/light_mask = 3
 transform/pos = Vector2( 581.5, 361 )
 transform/scale = Vector2( 0.5, 0.5 )
 z/z = -100
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 
 [node name="LuzAmbiente" type="Light2D" parent="Level"]
 
@@ -64,7 +66,7 @@ transform/pos = Vector2( 589.153, 359.142 )
 transform/scale = Vector2( 11.994, 7.55706 )
 enabled = true
 editor_only = false
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -84,18 +86,18 @@ shadow/item_mask = 1
 
 [node name="Players" type="Node" parent="."]
 
-[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 6 )]
+[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 96, 160 )
 
-[node name="Luz" parent="Players" instance=ExtResource( 7 )]
+[node name="Luz" parent="Players" instance=ExtResource( 8 )]
 
 transform/pos = Vector2( 416, 256 )
 
 [node name="LightTarget" type="Position2D" parent="Players" groups=[ "LightTarget" ]]
 
 transform/pos = Vector2( 362, 234 )
-script/script = ExtResource( 8 )
+script/script = ExtResource( 9 )
 
 [node name="Camera" type="Node" parent="."]
 
@@ -119,16 +121,5 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = SubResource( 1 )
-
-[node name="StreamPlayer" type="StreamPlayer" parent="."]
-
-stream/stream = ExtResource( 9 )
-stream/play = false
-stream/loop = true
-stream/volume_db = 10.0
-stream/autoplay = true
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
 
 

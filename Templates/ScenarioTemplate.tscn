@@ -29,6 +29,7 @@ script/source = "extends Camera2D\n\nvar player1\n\nfunc _ready():\n\tvar player
 
 material/material = ExtResource( 1 )
 script/script = ExtResource( 2 )
+nextLevelPath = null
 
 [node name="darkbg" type="Sprite" parent="Level"]
 
@@ -210,7 +211,6 @@ gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
 script/script = ExtResource( 9 )
-nextLevelPath = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
 
