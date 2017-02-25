@@ -20,7 +20,6 @@ func _fixed_process(delta):
 	
 	var motion = velocity * delta
 	motion = move(motion)
-
 	
 	if (is_colliding()):
 		var n = get_collision_normal()
@@ -32,6 +31,11 @@ func _fixed_process(delta):
 		jumps = 1
 		
 	updateControl()
+	
+	if (velocity.x != 0):
+		get_node("AnimationPlayer").set_active(true)
+	else:
+		get_node("AnimationPlayer").set_active(false)
 	
 	var collider = get_node("Sprite").get_node("RayCast2D").get_collider()
 	if (collider and is_colliding() and collider.get_type() == "KinematicBody2D"):

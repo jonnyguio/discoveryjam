@@ -1,16 +1,17 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
 [ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=2]
 [ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=3]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Luz.tscn" type="PackedScene" id=5]
+[ext_resource path="res://PushableBlock.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Luz.tscn" type="PackedScene" id=6]
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends Node2D\n\n# class member variables go here, for example:\n# var a = 2\n# var b = \"textvar\"\n\nonready var light_only = load(\"res://Templates/onlyLight.tres\")\nfunc _ready():\n\tget_node(\"bg\").set_use_parent_material(true)\n\tget_node(\"TileMap\").get_tileset().tile_set_material( 0 , light_only )\n\tpass\n"
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=2]
 
 script/source = "extends Camera2D\n\nvar player1\n\nfunc _ready():\n\tvar players = get_tree().get_nodes_in_group(\"Player1\")\n\tif( players.size() > 0 ):\n\t\tplayer1 = players[0]\n\t\n\tset_process(true)\n\n\nfunc _process(delta):\n\tset_global_pos( player1.get_global_pos() )\n\n"
 
@@ -19,7 +20,7 @@ script/source = "extends Camera2D\n\nvar player1\n\nfunc _ready():\n\tvar player
 [node name="Level" type="Node2D" parent="."]
 
 material/material = ExtResource( 1 )
-script/script = SubResource( 2 )
+script/script = SubResource( 1 )
 
 [node name="darkbg" type="Sprite" parent="Level"]
 
@@ -54,13 +55,18 @@ transform/scale = Vector2( 0.5, 0.5 )
 z/z = -100
 texture = ExtResource( 2 )
 
+[node name="PushableBlock" parent="Level" instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 504.6, 380.599 )
+transform/scale = Vector2( 1, 1 )
+
 [node name="Players" type="Node" parent="."]
 
-[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 4 )]
+[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 288, 160 )
 
-[node name="Luz" parent="Players" instance=ExtResource( 5 )]
+[node name="Luz" parent="Players" instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 160, 96 )
 
@@ -85,10 +91,6 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-script/script = SubResource( 1 )
-
-[node name="PushableBlock" parent="." instance=ExtResource( 4 )]
-
-transform/pos = Vector2( 519.668, 382.271 )
+script/script = SubResource( 2 )
 
 
