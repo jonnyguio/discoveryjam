@@ -1,0 +1,104 @@
+[gd_scene load_steps=11 format=1]
+
+[ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
+[ext_resource path="res://LevelSetter.gd" type="Script" id=2]
+[ext_resource path="res://MainStreamPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=4]
+[ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=5]
+[ext_resource path="res://Textures/whitebox.tex" type="Texture" id=6]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Luz.tscn" type="PackedScene" id=8]
+[ext_resource path="res://LightTarget.gd" type="Script" id=9]
+[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=10]
+
+[node name="Scenario" type="Node"]
+
+[node name="Level" type="Node2D" parent="."]
+
+material/material = ExtResource( 1 )
+script/script = ExtResource( 2 )
+nextLevelPath = "res://Levels/7.tscn"
+streamPlayer = ExtResource( 3 )
+
+[node name="darkbg" type="Sprite" parent="Level"]
+
+transform/pos = Vector2( 581.5, 361 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -100
+texture = ExtResource( 4 )
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="TileMap" type="TileMap" parent="Level"]
+
+visibility/light_mask = 3
+transform/pos = Vector2( 2, 0 )
+mode = 0
+tile_set = ExtResource( 5 )
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1024
+collision/mask = 0
+occluder/light_mask = 1
+tile_data = IntArray( -262142, 0, -262141, 0, -262140, 0, -262139, 0, -262138, 0, -196606, 0, -196602, 0, -131070, 0, -131066, 0, -65534, 0, -65530, 0, 0, 0, 1, 0, 2, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 27, 0, 28, 0, 29, 0, 30, 0, 31, 0, 32, 0, 33, 0, 65536, 0, 65563, 1073741824, 65569, 0, 131072, 0, 131099, 1073741824, 131105, 0, 196608, 0, 196629, 1073741826, 196635, 1073741824, 196641, 0, 262144, 0, 262152, 4, 262166, 1073741826, 262171, 1073741824, 262177, 0, 327680, 0, 327687, 0, 327688, 0, 327703, 1073741826, 327707, 1073741824, 327713, 0, 393216, 0, 393236, 1073741825, 393240, 1073741826, 393243, 1073741824, 393249, 0, 458752, 0, 458761, 1073741826, 458773, 1073741825, 458777, 1073741826, 458778, 1073741826, 458779, 1073741824, 458785, 0, 524288, 0, 524297, 1073741826, 524306, 1073741826, 524310, 1073741825, 524313, 1073741826, 524314, 1073741826, 524315, 1073741824, 524321, 0, 589824, 0, 589833, 1073741825, 589843, 1073741826, 589847, 1073741825, 589848, 1073741825, 589851, 1073741824, 589857, 0, 655360, 0, 655369, 1073741825, 655370, 1073741825, 655380, 1073741826, 655383, 1073741825, 655384, 1073741825, 655387, 1073741824, 655393, 0, 720896, 0, 720913, 1073741825, 720917, 1073741826, 720918, 1073741826, 720923, 1073741824, 720929, 0, 786432, 0, 786450, 1073741825, 786453, 1073741826, 786454, 1073741826, 786459, 1073741824, 786465, 0, 851968, 0, 851983, 1073741826, 851987, 1073741825, 851988, 1073741825, 851995, 1073741824, 852001, 0, 917504, 0, 917520, 1073741826, 917523, 1073741825, 917524, 1073741825, 917531, 1073741824, 917537, 0, 983040, 0, 983057, 1073741826, 983058, 1073741826, 983067, 1073741824, 983073, 0, 1048576, 0, 1048590, 1073741825, 1048593, 1073741826, 1048594, 1073741826, 1048603, 1073741824, 1048609, 0, 1114112, 0, 1114127, 1073741825, 1114128, 1073741825, 1114139, 1073741824, 1114145, 0, 1179648, 0, 1179649, 0, 1179663, 1073741825, 1179664, 1073741825, 1179675, 1073741824, 1179681, 0, 1245184, 0, 1245185, 0, 1245186, 0, 1245197, 1073741826, 1245198, 1073741826, 1245208, 5, 1245209, 5, 1245210, 5, 1245211, 1073741824, 1245216, 0, 1245217, 0, 1310720, 0, 1310721, 0, 1310722, 0, 1310723, 0, 1310724, 0, 1310725, 0, 1310726, 0, 1310727, 0, 1310728, 0, 1310729, 0, 1310730, 0, 1310731, 0, 1310732, 0, 1310733, 0, 1310734, 0, 1310735, 0, 1310736, 0, 1310737, 0, 1310738, 0, 1310739, 0, 1310740, 0, 1310741, 0, 1310742, 0, 1310743, 0, 1310744, 0, 1310745, 0, 1310746, 0, 1310747, 0, 1310748, 0, 1310749, 0, 1310750, 0, 1310751, 0, 1310752, 0, 1310753, 0 )
+
+[node name="bg" type="Sprite" parent="Level"]
+
+visibility/light_mask = 3
+transform/pos = Vector2( 581.5, 361 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -100
+texture = ExtResource( 4 )
+modulate = Color( 0.476563, 0.476563, 0.476563, 1 )
+
+[node name="LuzAmbiente" type="Light2D" parent="Level"]
+
+visibility/visible = false
+transform/pos = Vector2( 589.153, 359.142 )
+transform/scale = Vector2( 11.994, 7.55706 )
+enabled = true
+editor_only = false
+texture = ExtResource( 6 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.05
+mode = 2
+range/height = -1.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 2
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 7 )]
+
+transform/pos = Vector2( 144, -64 )
+
+[node name="Luz" parent="Players" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 144, 96 )
+
+[node name="LightTarget" type="Position2D" parent="Players" groups=[ "LightTarget" ]]
+
+transform/pos = Vector2( 154, 618 )
+script/script = ExtResource( 9 )
+
+[node name="Camera" type="Node" parent="."]
+
+[node name="Camera2D" parent="Camera" instance=ExtResource( 10 )]
+
+
