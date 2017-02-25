@@ -37,6 +37,7 @@ func _fixed_process(delta):
 		get_node("AnimationPlayer").set_active(false)
 		
 	updateControl()
+	
 	if (get_scale().x > 0):
 		get_node("RayCast2D").set_cast_to(Vector2(10, 0))
 		get_node("RayCast2D").set_pos(Vector2(30, 0))
