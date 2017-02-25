@@ -60,7 +60,7 @@ func updateControl():
 		set_scale(Vector2(1, 1))
 	if (!InputSingleton.isKeyBeingPressed("1_left") and !InputSingleton.isKeyBeingPressed("ui_right")):
 		velocity.x = 0
-	if (InputSingleton.isKeyBeingPressed("1_up")):
+	if ( InputSingleton.isKeyBeingPressed("1_up") and isOnFloor() ):
 		if (jumps > 0):
 			velocity.y = -3 * speedBase
 			jumps -= 1

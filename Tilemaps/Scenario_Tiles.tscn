@@ -52,4 +52,12 @@ transform/pos = Vector2( 144, 16 )
 texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 32, 32 )
 
+[node name="4" type="Sprite" parent="."]
+
+visibility/light_mask = 3
+transform/pos = Vector2( 208, 16 )
+texture = ExtResource( 3 )
+modulate = Color( 0.855469, 0.253967, 0.253967, 1 )
+region_rect = Rect2( 0, 0, 32, 32 )
+
 

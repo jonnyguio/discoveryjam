@@ -1,22 +1,16 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
 [ext_resource path="res://LevelSetter.gd" type="Script" id=2]
 [ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=3]
 [ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=4]
 [ext_resource path="res://Textures/whitebox.tex" type="Texture" id=5]
-[ext_resource path="res://Finish.gd" type="Script" id=6]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Luz.tscn" type="PackedScene" id=8]
-[ext_resource path="res://LightTarget.gd" type="Script" id=9]
-[ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=10]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Luz.tscn" type="PackedScene" id=7]
+[ext_resource path="res://LightTarget.gd" type="Script" id=8]
+[ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=9]
 
-[sub_resource type="RectangleShape2D" id=1]
-
-custom_solver_bias = 0.0
-extents = Vector2( 15.8903, 25.2727 )
-
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=1]
 
 script/source = "extends Camera2D\n\nvar player1\n\nfunc _ready():\n\tvar players = get_tree().get_nodes_in_group(\"Player1\")\n\tif( players.size() > 0 ):\n\t\tplayer1 = players[0]\n\t\n\tset_process(true)\n\n\nfunc _process(delta):\n\tset_global_pos( player1.get_global_pos() )\n\n"
 
@@ -88,45 +82,20 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
-[node name="Area2D" type="Area2D" parent="Level"]
-
-transform/pos = Vector2( 992, 128 )
-input/pickable = true
-shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
-shapes/0/trigger = false
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-script/script = ExtResource( 6 )
-nextLevelPath = null
-
-[node name="Sprite" type="Sprite" parent="Level/Area2D"]
-
-visibility/visible = false
-texture = ExtResource( 5 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
-
-shape = SubResource( 1 )
-trigger = false
-_update_shape_index = 0
-
 [node name="Players" type="Node" parent="."]
 
-[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 7 )]
+[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 96, 160 )
 
-[node name="Luz" parent="Players" instance=ExtResource( 8 )]
+[node name="Luz" parent="Players" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 416, 256 )
 
 [node name="LightTarget" type="Position2D" parent="Players" groups=[ "LightTarget" ]]
 
 transform/pos = Vector2( 362, 234 )
-script/script = ExtResource( 9 )
+script/script = ExtResource( 8 )
 
 [node name="Camera" type="Node" parent="."]
 
@@ -149,11 +118,11 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-script/script = SubResource( 2 )
+script/script = SubResource( 1 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 10 )
+stream/stream = ExtResource( 9 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 10.0
