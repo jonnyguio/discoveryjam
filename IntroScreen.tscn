@@ -1,11 +1,11 @@
 [gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://8x8font.fnt" type="BitmapFont" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Textures/hand.tex" type="Texture" id=2]
 
 [sub_resource type="GDScript" id=2]
 
-script/source = "extends Node2D\n\nvar cursor\nvar x = 0\nvar y = 0\n\nfunc _ready():\n\tcursor = get_node(\"cursor\")\n\tset_hidden(true)\n\tset_process(false)\n\nfunc openOptions():\n\tset_hidden(false)\n\tset_process(true)\n\n#ta nojento fodase\nfunc _process(delta):\n\tif( InputSingleton.wasKeyPressedNow(\"ui_right\") ):\n\t\tx += 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_left\") ):\n\t\tx -= 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_down\") ):\n\t\ty += 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_up\") ):\n\t\ty -= 1\n\t\n\tif( x < 0 ):\n\t\tx = 0\n\telif( x > 3 ):\n\t\tx = 3\n\tif(y < 0 ):\n\t\ty = 0\n\telif( y > 3 ):\n\t\ty = 3\n\t\n\tcursor.set_pos( Vector2(32*x,24*y) )\n\t\n\tif( InputSingleton.wasKeyPressedNow(\"Z\") ):\n\t\tprint(\"abri fase x= \", x , \" e y = \" , y )\n\t\tget_tree().get_root().get_node(\"IntroScreen\").queue_free()\n\t\n\t\n\t\n\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+script/source = "extends Node2D\n\nvar cursor\nvar x = 0\nvar y = 0\n\nfunc _ready():\n\tcursor = get_node(\"cursor\")\n\tset_hidden(true)\n\tset_process(false)\n\nfunc openOptions():\n\tset_hidden(false)\n\tset_process(true)\n\n#ta nojento fodase\nfunc _process(delta):\n\tif( InputSingleton.wasKeyPressedNow(\"ui_right\") ):\n\t\tx += 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_left\") ):\n\t\tx -= 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_down\") ):\n\t\ty += 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_up\") ):\n\t\ty -= 1\n\t\n\tif( x < 0 ):\n\t\tx = 0\n\telif( x > 3 ):\n\t\tx = 3\n\tif(y < 0 ):\n\t\ty = 0\n\telif( y > 3 ):\n\t\ty = 3\n\t\n\tcursor.set_pos( Vector2(-12,6) + Vector2(32*x,24*y) )\n\t\n\tif( InputSingleton.wasKeyPressedNow(\"Z\") ):\n\t\tprint(\"abri fase x= \", x , \" e y = \" , y )\n\t\tget_tree().get_root().get_node(\"IntroScreen\").queue_free()\n\t\n\t\n\t\n\t\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
 
 [sub_resource type="Animation" id=1]
 
@@ -95,14 +95,9 @@ max_lines_visible = -1
 transform/pos = Vector2( 257, 253 )
 script/script = SubResource( 2 )
 
-[node name="cursor" type="Sprite" parent="Options"]
-
-transform/rot = 43.2165
-transform/scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 2 )
-
 [node name="VBoxContainer" type="GridContainer" parent="Options"]
 
+editor/display_folded = true
 focus/ignore_mouse = false
 focus/stop_mouse = false
 size_flags/horizontal = 2
@@ -418,6 +413,12 @@ text = "99"
 percent_visible = 1.0
 lines_skipped = 0
 max_lines_visible = -1
+
+[node name="cursor" type="Sprite" parent="Options"]
+
+transform/pos = Vector2( -12, 6 )
+transform/scale = Vector2( 0.3, 0.3 )
+texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
