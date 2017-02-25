@@ -1,4 +1,4 @@
-[gd_resource type="SampleLibrary" load_steps=36 format=1]
+[gd_resource type="SampleLibrary" load_steps=43 format=1]
 
 [ext_resource path="res://SFX/burp.smp" type="Sample" id=1]
 [ext_resource path="res://SFX/interface1.smp" type="Sample" id=2]
@@ -7,34 +7,41 @@
 [ext_resource path="res://SFX/interface4.smp" type="Sample" id=5]
 [ext_resource path="res://SFX/interface5.smp" type="Sample" id=6]
 [ext_resource path="res://SFX/interface6.smp" type="Sample" id=7]
-[ext_resource path="res://SFX/random1.smp" type="Sample" id=8]
-[ext_resource path="res://SFX/random2.smp" type="Sample" id=9]
-[ext_resource path="res://SFX/random3.smp" type="Sample" id=10]
-[ext_resource path="res://SFX/random4.smp" type="Sample" id=11]
-[ext_resource path="res://SFX/random5.smp" type="Sample" id=12]
-[ext_resource path="res://SFX/random6.smp" type="Sample" id=13]
-[ext_resource path="res://SFX/stepdirt_1.smp" type="Sample" id=14]
-[ext_resource path="res://SFX/stepdirt_2.smp" type="Sample" id=15]
-[ext_resource path="res://SFX/stepdirt_3.smp" type="Sample" id=16]
-[ext_resource path="res://SFX/stepdirt_4.smp" type="Sample" id=17]
-[ext_resource path="res://SFX/stepdirt_5.smp" type="Sample" id=18]
-[ext_resource path="res://SFX/stepdirt_6.smp" type="Sample" id=19]
-[ext_resource path="res://SFX/stepdirt_7.smp" type="Sample" id=20]
-[ext_resource path="res://SFX/stepdirt_8.smp" type="Sample" id=21]
-[ext_resource path="res://SFX/stepsnow_1.smp" type="Sample" id=22]
-[ext_resource path="res://SFX/stepsnow_2.smp" type="Sample" id=23]
-[ext_resource path="res://SFX/stepstone_1.smp" type="Sample" id=24]
-[ext_resource path="res://SFX/stepstone_2.smp" type="Sample" id=25]
-[ext_resource path="res://SFX/stepstone_3.smp" type="Sample" id=26]
-[ext_resource path="res://SFX/stepstone_4.smp" type="Sample" id=27]
-[ext_resource path="res://SFX/stepstone_5.smp" type="Sample" id=28]
-[ext_resource path="res://SFX/stepstone_6.smp" type="Sample" id=29]
-[ext_resource path="res://SFX/stepstone_7.smp" type="Sample" id=30]
-[ext_resource path="res://SFX/stepstone_8.smp" type="Sample" id=31]
-[ext_resource path="res://SFX/stepwater_1.smp" type="Sample" id=32]
-[ext_resource path="res://SFX/stepwater_2.smp" type="Sample" id=33]
-[ext_resource path="res://SFX/stepwood_1.smp" type="Sample" id=34]
-[ext_resource path="res://SFX/stepwood_2.smp" type="Sample" id=35]
+[ext_resource path="res://SFX/magic1.smp" type="Sample" id=8]
+[ext_resource path="res://SFX/random1.smp" type="Sample" id=9]
+[ext_resource path="res://SFX/random2.smp" type="Sample" id=10]
+[ext_resource path="res://SFX/random3.smp" type="Sample" id=11]
+[ext_resource path="res://SFX/random4.smp" type="Sample" id=12]
+[ext_resource path="res://SFX/random5.smp" type="Sample" id=13]
+[ext_resource path="res://SFX/random6.smp" type="Sample" id=14]
+[ext_resource path="res://SFX/spell.smp" type="Sample" id=15]
+[ext_resource path="res://SFX/stepdirt_1.smp" type="Sample" id=16]
+[ext_resource path="res://SFX/stepdirt_2.smp" type="Sample" id=17]
+[ext_resource path="res://SFX/stepdirt_3.smp" type="Sample" id=18]
+[ext_resource path="res://SFX/stepdirt_4.smp" type="Sample" id=19]
+[ext_resource path="res://SFX/stepdirt_5.smp" type="Sample" id=20]
+[ext_resource path="res://SFX/stepdirt_6.smp" type="Sample" id=21]
+[ext_resource path="res://SFX/stepdirt_7.smp" type="Sample" id=22]
+[ext_resource path="res://SFX/stepdirt_8.smp" type="Sample" id=23]
+[ext_resource path="res://SFX/stepsnow_1.smp" type="Sample" id=24]
+[ext_resource path="res://SFX/stepsnow_2.smp" type="Sample" id=25]
+[ext_resource path="res://SFX/stepstone_1.smp" type="Sample" id=26]
+[ext_resource path="res://SFX/stepstone_2.smp" type="Sample" id=27]
+[ext_resource path="res://SFX/stepstone_3.smp" type="Sample" id=28]
+[ext_resource path="res://SFX/stepstone_4.smp" type="Sample" id=29]
+[ext_resource path="res://SFX/stepstone_5.smp" type="Sample" id=30]
+[ext_resource path="res://SFX/stepstone_6.smp" type="Sample" id=31]
+[ext_resource path="res://SFX/stepstone_7.smp" type="Sample" id=32]
+[ext_resource path="res://SFX/stepstone_8.smp" type="Sample" id=33]
+[ext_resource path="res://SFX/stepwater_1.smp" type="Sample" id=34]
+[ext_resource path="res://SFX/stepwater_2.smp" type="Sample" id=35]
+[ext_resource path="res://SFX/stepwood_1.smp" type="Sample" id=36]
+[ext_resource path="res://SFX/stepwood_2.smp" type="Sample" id=37]
+[ext_resource path="res://SFX/sword-unsheathe.smp" type="Sample" id=38]
+[ext_resource path="res://SFX/sword-unsheathe2.smp" type="Sample" id=39]
+[ext_resource path="res://SFX/sword-unsheathe3.smp" type="Sample" id=40]
+[ext_resource path="res://SFX/sword-unsheathe4.smp" type="Sample" id=41]
+[ext_resource path="res://SFX/sword-unsheathe5.smp" type="Sample" id=42]
 
 [resource]
 
@@ -45,32 +52,39 @@ samples/interface3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 4 ) }
 samples/interface4 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 5 ) }
 samples/interface5 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 6 ) }
 samples/interface6 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 7 ) }
-samples/random1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
-samples/random2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
-samples/random3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 10 ) }
-samples/random4 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 11 ) }
-samples/random5 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 12 ) }
-samples/random6 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 13 ) }
-samples/stepdirt_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 14 ) }
-samples/stepdirt_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 15 ) }
-samples/stepdirt_3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 16 ) }
-samples/stepdirt_4 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 17 ) }
-samples/stepdirt_5 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 18 ) }
-samples/stepdirt_6 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 19 ) }
-samples/stepdirt_7 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 20 ) }
-samples/stepdirt_8 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 21 ) }
-samples/stepsnow_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 22 ) }
-samples/stepsnow_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 23 ) }
-samples/stepstone_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 24 ) }
-samples/stepstone_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 25 ) }
-samples/stepstone_3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 26 ) }
-samples/stepstone_4 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 27 ) }
-samples/stepstone_5 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 28 ) }
-samples/stepstone_6 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 29 ) }
-samples/stepstone_7 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 30 ) }
-samples/stepstone_8 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 31 ) }
-samples/stepwater_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 32 ) }
-samples/stepwater_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 33 ) }
-samples/stepwood_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 34 ) }
-samples/stepwood_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 35 ) }
+samples/magic1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 8 ) }
+samples/random1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 9 ) }
+samples/random2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 10 ) }
+samples/random3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 11 ) }
+samples/random4 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 12 ) }
+samples/random5 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 13 ) }
+samples/random6 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 14 ) }
+samples/spell = { "db":0.0, "pitch":1.0, "sample":ExtResource( 15 ) }
+samples/stepdirt_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 16 ) }
+samples/stepdirt_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 17 ) }
+samples/stepdirt_3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 18 ) }
+samples/stepdirt_4 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 19 ) }
+samples/stepdirt_5 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 20 ) }
+samples/stepdirt_6 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 21 ) }
+samples/stepdirt_7 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 22 ) }
+samples/stepdirt_8 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 23 ) }
+samples/stepsnow_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 24 ) }
+samples/stepsnow_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 25 ) }
+samples/stepstone_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 26 ) }
+samples/stepstone_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 27 ) }
+samples/stepstone_3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 28 ) }
+samples/stepstone_4 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 29 ) }
+samples/stepstone_5 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 30 ) }
+samples/stepstone_6 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 31 ) }
+samples/stepstone_7 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 32 ) }
+samples/stepstone_8 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 33 ) }
+samples/stepwater_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 34 ) }
+samples/stepwater_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 35 ) }
+samples/stepwood_1 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 36 ) }
+samples/stepwood_2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 37 ) }
+samples/sword-unsheathe = { "db":0.0, "pitch":1.0, "sample":ExtResource( 38 ) }
+samples/sword-unsheathe2 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 39 ) }
+samples/sword-unsheathe3 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 40 ) }
+samples/sword-unsheathe4 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 41 ) }
+samples/sword-unsheathe5 = { "db":0.0, "pitch":1.0, "sample":ExtResource( 42 ) }
 

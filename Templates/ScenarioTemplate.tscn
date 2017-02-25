@@ -1,19 +1,26 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
 [ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=2]
 [ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=3]
 [ext_resource path="res://LightBlock.tscn" type="PackedScene" id=4]
-[ext_resource path="res://PushableBlock.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Textures/whitebox.tex" type="Texture" id=6]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Luz.tscn" type="PackedScene" id=8]
-[ext_resource path="res://LightTarget.gd" type="Script" id=9]
-[ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=10]
+[ext_resource path="res://DarknessBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://PushableBlock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Textures/whitebox.tex" type="Texture" id=7]
+[ext_resource path="res://Finish.gd" type="Script" id=8]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Luz.tscn" type="PackedScene" id=10]
+[ext_resource path="res://LightTarget.gd" type="Script" id=11]
+[ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=12]
 
 [sub_resource type="GDScript" id=1]
 
 script/source = "extends Node2D\n\n# class member variables go here, for example:\n# var a = 2\n# var b = \"textvar\"\n\nonready var light_only = load(\"res://Templates/onlyLight.tres\")\nfunc _ready():\n\tget_node(\"bg\").set_use_parent_material(true)\n\tget_node(\"PushableBlock\").set_use_parent_material(true)\n\tget_node(\"PushableBlock\").get_node(\"Sprite\").set_use_parent_material(true)\n\tget_node(\"Lightblocks\").set_use_parent_material(true)\n\tget_node(\"TileMap\").get_tileset().tile_set_material(0 , light_only )\n\tget_node(\"TileMap\").get_tileset().tile_set_material(2 , light_only )\n\tpass\n"
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15.8903, 25.2727 )
 
 [sub_resource type="GDScript" id=2]
 
@@ -104,6 +111,58 @@ transform/pos = Vector2( 0, 320 )
 
 transform/pos = Vector2( 0, 352 )
 
+[node name="Darknessblocks" type="Node2D" parent="Level"]
+
+editor/display_folded = true
+
+[node name="DarknessBlock" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 48 )
+
+[node name="DarknessBlock1" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 80 )
+
+[node name="DarknessBlock2" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 112 )
+
+[node name="DarknessBlock3" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 144 )
+
+[node name="DarknessBlock4" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 176 )
+
+[node name="DarknessBlock5" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 208 )
+
+[node name="DarknessBlock6" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 240 )
+
+[node name="DarknessBlock7" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 272 )
+
+[node name="DarknessBlock8" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 304 )
+
+[node name="DarknessBlock9" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 336 )
+
+[node name="DarknessBlock10" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 368 )
+
+[node name="DarknessBlock11" parent="Level/Darknessblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 944, 400 )
+
 [node name="bg" type="Sprite" parent="Level"]
 
 visibility/light_mask = 3
@@ -112,7 +171,7 @@ transform/scale = Vector2( 0.5, 0.5 )
 z/z = -100
 texture = ExtResource( 2 )
 
-[node name="PushableBlock" parent="Level" instance=ExtResource( 5 )]
+[node name="PushableBlock" parent="Level" instance=ExtResource( 6 )]
 
 visibility/light_mask = 3
 transform/pos = Vector2( 504.6, 380.599 )
@@ -123,7 +182,7 @@ transform/pos = Vector2( 589.153, 359.142 )
 transform/scale = Vector2( 11.994, 7.55706 )
 enabled = true
 editor_only = false
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 offset = Vector2( 0, 0 )
 scale = 1.0
 color = Color( 1, 1, 1, 1 )
@@ -141,19 +200,38 @@ shadow/buffer_size = 2048
 shadow/esm_multiplier = 80.0
 shadow/item_mask = 1
 
+[node name="Area2D" type="Area2D" parent="Level"]
+
+transform/pos = Vector2( 1042.22, 394.288 )
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 8 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
+
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
 [node name="Players" type="Node" parent="."]
 
-[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 7 )]
+[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 9 )]
 
 transform/pos = Vector2( 288, 160 )
 
-[node name="Luz" parent="Players" instance=ExtResource( 8 )]
+[node name="Luz" parent="Players" instance=ExtResource( 10 )]
 
-transform/pos = Vector2( 711.917, 245.455 )
+transform/pos = Vector2( 712.917, 245.455 )
 
 [node name="LightTarget" type="Position2D" parent="Players" groups=[ "LightTarget" ]]
 
-script/script = ExtResource( 9 )
+script/script = ExtResource( 11 )
 
 [node name="Camera" type="Node" parent="."]
 
@@ -180,7 +258,7 @@ script/script = SubResource( 2 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
-stream/stream = ExtResource( 10 )
+stream/stream = ExtResource( 12 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 10.0

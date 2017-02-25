@@ -22,13 +22,20 @@ func _fixed_process(delta):
 			get_node("Sprite").set_flip_h(false)
 		else:
 			get_node("Sprite").set_flip_h(true)
+		
 
 func onBodyEnter(obj):
 	if( obj.is_in_group("LightBlock") ):
 		obj.get_node("CollisionShape2D").set_trigger(false)
 		obj.set_hidden(false)
+	if( obj.is_in_group("DarknessBlock") ):
+		obj.get_node("CollisionShape2D").set_trigger(true)
+		obj.set_hidden(true)
 
 func onBodyExit(obj):
 	if( obj.is_in_group("LightBlock") ):
 		obj.get_node("CollisionShape2D").set_trigger( true )
 		obj.set_hidden( true )
+	if( obj.is_in_group("DarknessBlock") ):
+		obj.get_node("CollisionShape2D").set_trigger(false)
+		obj.set_hidden(false)

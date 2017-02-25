@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Luz.gd" type="Script" id=1]
 [ext_resource path="res://Textures/lumi.tex" type="Texture" id=2]
 [ext_resource path="res://Textures/circle.tex" type="Texture" id=3]
+[ext_resource path="res://SFX/SampleLibrary.tres" type="SampleLibrary" id=4]
 
 [sub_resource type="Animation" id=1]
 
@@ -141,5 +142,16 @@ params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 randomness/initial_size = 0.4
 color/color_ramp = SubResource( 4 )
+
+[node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
+
+params/volume_db = 0.0
+params/pitch_scale = 1.0
+params/attenuation/min_distance = 1.0
+params/attenuation/max_distance = 2048.0
+params/attenuation/distance_exp = 1.0
+config/polyphony = 1
+config/samples = ExtResource( 4 )
+config/pitch_random = 0.0
 
 

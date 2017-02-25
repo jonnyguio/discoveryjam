@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="DarknessBlock" type="StaticBody2D"]
+[node name="DarknessBlock" type="StaticBody2D" groups=[ "DarknessBlock" ]]
 
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -29,5 +29,6 @@ _update_shape_index = 0
 [node name="Sprite" type="Sprite" parent="."]
 
 texture = ExtResource( 1 )
+modulate = Color( 1, 1, 1, 0.196078 )
 
 
