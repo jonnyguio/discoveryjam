@@ -7,8 +7,6 @@ extends Area2D
 export (String) var nextLevelPath
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
 	connect("body_enter", self, "finishLevel")
 
 func finishLevel(obj):

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Luz.gd" type="Script" id=1]
-[ext_resource path="res://Textures/lumi.tex" type="Texture" id=2]
+[ext_resource path="res://Textures/vagaluminho.tex" type="Texture" id=2]
 [ext_resource path="res://Textures/circle.tex" type="Texture" id=3]
-[ext_resource path="res://SFX/SampleLibrary.tres" type="SampleLibrary" id=4]
+[ext_resource path="res://Textures/estrelinha.tex" type="Texture" id=4]
+[ext_resource path="res://SFX/SampleLibrary.tres" type="SampleLibrary" id=5]
 
 [sub_resource type="Animation" id=1]
 
@@ -41,8 +42,8 @@ radius = 100.0
 
 [sub_resource type="ColorRamp" id=4]
 
-offsets = FloatArray( 0.0813954, 0.261628, 0.296512, 0.331395, 0.5, 0.511628, 0.534884, 0.69186, 0.732558, 0.761628, 1 )
-colors = ColorArray( 0.953488, 0.953488, 0.953488, 1, 0.962093, 0.962093, 0.962093, 1, 0.963758, 0.963758, 0.963758, 0, 0.965423, 0.965423, 0.965423, 1, 0.992246, 0.992246, 0.992246, 1, 0.974028, 0.974028, 0.974028, 0, 0.996381, 0.996381, 0.996381, 1, 0.982632, 0.982632, 0.982632, 1, 0.986753, 0.986753, 0.986753, 0, 0.989402, 0.989402, 0.989402, 1, 1, 1, 1, 1 )
+offsets = FloatArray( 0.0813954, 0.135531, 0.157509, 0.175824, 0.223443, 0.261628, 0.296512, 0.331395, 0.413919, 0.5, 0.511628, 0.534884, 0.589744, 0.604396, 0.626374, 0.69186, 0.732558, 0.761628, 1 )
+colors = ColorArray( 0.875, 1, 0, 1, 0.88497, 0.995661, 0.110133, 1, 0.887772, 0.994441, 0.141087, 0, 0.891041, 0.993018, 0.177201, 1, 0.90116, 0.988614, 0.28898, 1, 0.962093, 0.962093, 0.962093, 1, 0.963758, 0.963758, 0.963758, 0, 0.965423, 0.965423, 0.965423, 1, 0.875, 1, 0, 1, 0.992246, 0.992246, 0.992246, 1, 0.974028, 0.974028, 0.974028, 0, 0.996381, 0.996381, 0.996381, 1, 0.962152, 0.997646, 0.648168, 1, 0.95301, 0.997984, 0.555167, 0, 0.939297, 0.99849, 0.415665, 1, 0.898438, 1, 0, 1, 0.986753, 0.986753, 0.986753, 0, 0.989402, 0.989402, 0.989402, 1, 1, 1, 1, 0 )
 
 [node name="Luz" type="Node2D" groups=[ "Player2" ]]
 
@@ -61,12 +62,13 @@ playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/Luz = SubResource( 1 )
 playback/active = true
-playback/speed = 6.0
+playback/speed = 8.0
 blend_times = [  ]
 autoplay = "Luz"
 
 [node name="Light2D" type="Light2D" parent="."]
 
+z/z = 1
 enabled = true
 editor_only = false
 texture = ExtResource( 3 )
@@ -120,10 +122,10 @@ _update_shape_index = 0
 
 visibility/behind_parent = true
 config/amount = 48
-config/lifetime = 3.0
+config/lifetime = 5.0
 config/half_extents = Vector2( 8, 8 )
 config/local_space = false
-config/texture = ExtResource( 3 )
+config/texture = ExtResource( 4 )
 params/direction = 0.0
 params/spread = 10.0
 params/linear_velocity = 20.0
@@ -135,12 +137,12 @@ params/radial_accel = 0.0
 params/tangential_accel = 0.0
 params/damping = 0.0
 params/initial_angle = 0.0
-params/initial_size = 0.01
-params/final_size = 0.0
+params/initial_size = 1.0
+params/final_size = 1.0
 params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
-randomness/initial_size = 0.4
+randomness/spin_velocity = 1.0
 color/color_ramp = SubResource( 4 )
 
 [node name="SamplePlayer2D" type="SamplePlayer2D" parent="."]
@@ -151,7 +153,7 @@ params/attenuation/min_distance = 1.0
 params/attenuation/max_distance = 2048.0
 params/attenuation/distance_exp = 1.0
 config/polyphony = 1
-config/samples = ExtResource( 4 )
+config/samples = ExtResource( 5 )
 config/pitch_random = 0.0
 
 
