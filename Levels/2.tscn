@@ -1,0 +1,265 @@
+[gd_scene load_steps=16 format=1]
+
+[ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
+[ext_resource path="res://LevelSetter.gd" type="Script" id=2]
+[ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=3]
+[ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=4]
+[ext_resource path="res://LightBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://DarknessBlock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://PushableBlock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Textures/whitebox.tex" type="Texture" id=8]
+[ext_resource path="res://Finish.gd" type="Script" id=9]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Luz.tscn" type="PackedScene" id=11]
+[ext_resource path="res://LightTarget.gd" type="Script" id=12]
+[ext_resource path="res://Camera.gd" type="Script" id=13]
+[ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=14]
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 15.8903, 25.2727 )
+
+[node name="Scenario" type="Node"]
+
+[node name="Level" type="Node2D" parent="."]
+
+material/material = ExtResource( 1 )
+script/script = ExtResource( 2 )
+
+[node name="darkbg" type="Sprite" parent="Level"]
+
+transform/pos = Vector2( 581.5, 361 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -100
+texture = ExtResource( 3 )
+modulate = Color( 0, 0, 0, 1 )
+
+[node name="TileMap" type="TileMap" parent="Level"]
+
+visibility/light_mask = 3
+mode = 0
+tile_set = ExtResource( 4 )
+cell/size = Vector2( 32, 32 )
+cell/quadrant_size = 16
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0, 10, 0, 11, 0, 12, 0, 13, 0, 14, 0, 15, 0, 16, 0, 17, 0, 18, 0, 19, 0, 20, 0, 21, 0, 22, 0, 23, 0, 24, 0, 25, 0, 26, 0, 27, 0, 28, 0, 29, 0, 30, 0, 31, 0, 32, 0, 33, 0, 65536, 0, 65569, 0, 131072, 0, 131105, 0, 196608, 0, 196641, 0, 262144, 0, 262177, 0, 327680, 0, 327713, 0, 393216, 0, 393249, 0, 458752, 0, 458785, 0, 524288, 0, 524321, 0, 589824, 0, 589857, 0, 655360, 0, 655393, 0, 720896, 0, 720929, 0, 786432, 0, 786465, 0, 851968, 0, 851969, 0, 851970, 0, 851971, 0, 851972, 0, 851973, 0, 851974, 0, 851975, 0, 851976, 0, 851977, 0, 851978, 0, 851979, 0, 851980, 0, 851981, 0, 851982, 0, 851983, 0, 851984, 0, 851985, 0, 851986, 0, 851987, 0, 851988, 0, 851989, 0, 851990, 0, 851991, 0, 851992, 0, 851993, 0, 851994, 0, 851995, 0, 851996, 0, 851997, 0, 851998, 0, 851999, 0, 852000, 0, 852001, 0, 917504, 0, 917505, 0, 917506, 0, 917507, 0, 917508, 0, 917509, 0, 917510, 0, 917511, 0, 917512, 0, 917513, 0, 917514, 0, 917515, 0, 917516, 0, 917517, 0, 917518, 0, 917519, 0, 917520, 0, 917521, 0, 917522, 0, 917523, 0, 917524, 0, 917525, 0, 917526, 0, 917527, 0, 917528, 0, 917529, 0, 917530, 0, 917531, 0, 917532, 0, 917533, 0, 917534, 0, 917535, 0, 917536, 0, 917537, 0, 983040, 0, 983041, 0, 983042, 0, 983043, 0, 983044, 0, 983045, 0, 983046, 0, 983047, 0, 983048, 0, 983049, 0, 983050, 0, 983051, 0, 983052, 0, 983053, 0, 983054, 0, 983055, 0, 983056, 0, 983057, 0, 983058, 0, 983059, 0, 983060, 0, 983061, 0, 983062, 0, 983063, 0, 983064, 0, 983065, 0, 983066, 0, 983067, 0, 983068, 0, 983069, 0, 983070, 0, 983071, 0, 983072, 0, 983073, 0 )
+
+[node name="Lightblocks" type="Node2D" parent="Level"]
+
+editor/display_folded = true
+transform/pos = Vector2( 752, 48 )
+
+[node name="LightBlock" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+[node name="LightBlock1" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 32 )
+
+[node name="LightBlock2" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 64 )
+
+[node name="LightBlock3" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 96 )
+
+[node name="LightBlock4" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 128 )
+
+[node name="LightBlock5" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 160 )
+
+[node name="LightBlock6" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 192 )
+
+[node name="LightBlock7" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 224 )
+
+[node name="LightBlock8" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 256 )
+
+[node name="LightBlock9" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 288 )
+
+[node name="LightBlock10" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 320 )
+
+[node name="LightBlock11" parent="Level/Lightblocks" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 0, 352 )
+
+[node name="Darknessblocks" type="Node2D" parent="Level"]
+
+editor/display_folded = true
+
+[node name="DarknessBlock" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 48 )
+
+[node name="DarknessBlock1" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 80 )
+
+[node name="DarknessBlock2" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 112 )
+
+[node name="DarknessBlock3" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 144 )
+
+[node name="DarknessBlock4" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 176 )
+
+[node name="DarknessBlock5" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 208 )
+
+[node name="DarknessBlock6" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 240 )
+
+[node name="DarknessBlock7" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 272 )
+
+[node name="DarknessBlock8" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 304 )
+
+[node name="DarknessBlock9" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 336 )
+
+[node name="DarknessBlock10" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 368 )
+
+[node name="DarknessBlock11" parent="Level/Darknessblocks" instance=ExtResource( 6 )]
+
+transform/pos = Vector2( 944, 400 )
+
+[node name="bg" type="Sprite" parent="Level"]
+
+visibility/light_mask = 3
+transform/pos = Vector2( 581.5, 361 )
+transform/scale = Vector2( 0.5, 0.5 )
+z/z = -100
+texture = ExtResource( 3 )
+
+[node name="PushableBlock" parent="Level" instance=ExtResource( 7 )]
+
+visibility/light_mask = 3
+transform/pos = Vector2( 504.6, 380.599 )
+
+[node name="LuzAmbiente" type="Light2D" parent="Level"]
+
+transform/pos = Vector2( 589.153, 359.142 )
+transform/scale = Vector2( 11.994, 7.55706 )
+enabled = true
+editor_only = false
+texture = ExtResource( 8 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.15
+mode = 2
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 2
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
+
+[node name="Area2D" type="Area2D" parent="Level"]
+
+transform/pos = Vector2( 1042.22, 394.288 )
+input/pickable = true
+shapes/0/shape = SubResource( 3 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 9 )
+nextLevelPath = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
+
+shape = SubResource( 3 )
+trigger = false
+_update_shape_index = 0
+
+[node name="Players" type="Node" parent="."]
+
+[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 10 )]
+
+transform/pos = Vector2( 288, 160 )
+
+[node name="Luz" parent="Players" instance=ExtResource( 11 )]
+
+transform/pos = Vector2( 712.917, 245.455 )
+
+[node name="LightTarget" type="Position2D" parent="Players" groups=[ "LightTarget" ]]
+
+script/script = ExtResource( 12 )
+
+[node name="Camera" type="Node" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="Camera"]
+
+transform/pos = Vector2( 320, 256 )
+anchor_mode = 1
+rotating = false
+current = true
+zoom = Vector2( 1, 1 )
+limit/left = 0
+limit/top = 0
+limit/right = 10000000
+limit/bottom = 10000000
+drag_margin/h_enabled = true
+drag_margin/v_enabled = true
+smoothing/enable = false
+smoothing/speed = 5.0
+drag_margin/left = 0.2
+drag_margin/top = 0.2
+drag_margin/right = 0.2
+drag_margin/bottom = 0.2
+script/script = ExtResource( 13 )
+
+[node name="StreamPlayer" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 14 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 10.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+
