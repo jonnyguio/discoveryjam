@@ -11,7 +11,7 @@ func _ready():
 
 func finishLevel(obj):
 	if (obj.is_in_group("Player1")):
-		var nextLevelResource = load(nextLevelPath)
+		var nextLevelResource = loasd(nextLevelPath)
 		var inst = nextLevelResource.instance()
 		get_tree().get_root().add_child(inst)
 		get_tree().get_root().get_node("Scenario").call_deferred("queue_free")

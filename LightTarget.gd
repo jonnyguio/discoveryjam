@@ -11,6 +11,7 @@ func _ready():
 func _process(delta):
 	updateControl()
 	set_global_pos( get_global_pos() + velocity*delta*60 )
+	set_global_pos( get_global_mouse_pos() )
 
 
 

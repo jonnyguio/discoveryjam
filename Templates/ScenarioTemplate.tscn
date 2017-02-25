@@ -14,12 +14,12 @@
 [ext_resource path="res://LightTarget.gd" type="Script" id=12]
 [ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=13]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 15.8903, 25.2727 )
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="GDScript" id=2]
 
 script/source = "extends Camera2D\n\nvar player1\n\nfunc _ready():\n\tvar players = get_tree().get_nodes_in_group(\"Player1\")\n\tif( players.size() > 0 ):\n\t\tplayer1 = players[0]\n\t\n\tset_process(true)\n\n\nfunc _process(delta):\n\tset_global_pos( player1.get_global_pos() )\n\n"
 
@@ -27,7 +27,6 @@ script/source = "extends Camera2D\n\nvar player1\n\nfunc _ready():\n\tvar player
 
 [node name="Level" type="Node2D" parent="."]
 
-editor/display_folded = true
 material/material = ExtResource( 1 )
 script/script = ExtResource( 2 )
 
@@ -176,6 +175,7 @@ transform/pos = Vector2( 504.6, 380.599 )
 
 [node name="LuzAmbiente" type="Light2D" parent="Level"]
 
+visibility/visible = false
 transform/pos = Vector2( 589.153, 359.142 )
 transform/scale = Vector2( 11.994, 7.55706 )
 enabled = true
@@ -202,7 +202,7 @@ shadow/item_mask = 1
 
 transform/pos = Vector2( 1042.22, 394.288 )
 input/pickable = true
-shapes/0/shape = SubResource( 2 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
 shapes/0/trigger = false
 gravity_vec = Vector2( 0, 1 )
@@ -214,7 +214,7 @@ nextLevelPath = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Level/Area2D"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
@@ -254,7 +254,7 @@ drag_margin/left = 0.2
 drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
-script/script = SubResource( 3 )
+script/script = SubResource( 2 )
 
 [node name="StreamPlayer" type="StreamPlayer" parent="."]
 
