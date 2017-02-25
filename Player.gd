@@ -30,8 +30,6 @@ func _fixed_process(delta):
 		
 	if (velocity.y == 0):
 		jumps = 1
-	else:
-		jumps = 0
 	
 	if (velocity.x != 0):
 		get_node("AnimationPlayer").set_active(true)
@@ -39,6 +37,15 @@ func _fixed_process(delta):
 		get_node("AnimationPlayer").set_active(false)
 		
 	updateControl()
+	if (get_scale().x > 0):
+		get_node("RayCast2D").set_cast_to(Vector2(10, 0))
+		get_node("RayCast2D").set_pos(Vector2(30, 0))
+	else:
+		get_node("RayCast2D").set_cast_to(Vector2(-10, 0))
+		get_node("RayCast2D").set_pos(Vector2(-30, 0))
+	var collider = get_node("RayCast2D").get_collider()
+	if (collider and is_colliding()):
+		collider.moveBlock(velocity, delta)
 	
 func updateControl():
 	if (InputSingleton.isKeyBeingPressed("ui_left")):

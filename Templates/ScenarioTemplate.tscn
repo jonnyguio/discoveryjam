@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
@@ -9,6 +10,14 @@
 [sub_resource type="GDScript" id=2]
 
 script/source = "extends Node2D\n\n# class member variables go here, for example:\n# var a = 2\n# var b = \"textvar\"\n\nonready var light_only = load(\"res://Templates/onlyLight.tres\")\nfunc _ready():\n\tget_node(\"bg\").set_use_parent_material(true)\n\tget_node(\"TileMap\").get_tileset().tile_set_material( 0 , light_only )\n\tpass\n"
+=======
+[gd_scene load_steps=6 format=1]
+
+[ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=1]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Luz.tscn" type="PackedScene" id=3]
+[ext_resource path="res://PushableBlock.tscn" type="PackedScene" id=4]
+>>>>>>> origin/master
 
 [sub_resource type="GDScript" id=1]
 
@@ -86,5 +95,9 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = SubResource( 1 )
+
+[node name="PushableBlock" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 424.98, 388.7 )
 
 
