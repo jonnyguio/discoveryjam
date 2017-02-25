@@ -1,12 +1,15 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=13 format=1]
 
 [ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
 [ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=2]
-[ext_resource path="res://Tilemaps/All.tres" type="TileSet" id=3]
+[ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=3]
 [ext_resource path="res://LightBlock.tscn" type="PackedScene" id=4]
 [ext_resource path="res://PushableBlock.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Luz.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Textures/whitebox.tex" type="Texture" id=6]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Luz.tscn" type="PackedScene" id=8]
+[ext_resource path="res://LightTarget.gd" type="Script" id=9]
+[ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=10]
 
 [sub_resource type="GDScript" id=1]
 
@@ -33,6 +36,7 @@ modulate = Color( 0, 0, 0, 1 )
 
 [node name="TileMap" type="TileMap" parent="Level"]
 
+visibility/light_mask = 3
 mode = 0
 tile_set = ExtResource( 3 )
 cell/size = Vector2( 32, 32 )
@@ -51,6 +55,7 @@ tile_data = IntArray( 0, 0, 1, 0, 2, 0, 3, 0, 4, 0, 5, 0, 6, 0, 7, 0, 8, 0, 9, 0
 
 [node name="Lightblocks" type="Node2D" parent="Level"]
 
+editor/display_folded = true
 transform/pos = Vector2( 752, 48 )
 
 [node name="LightBlock" parent="Level/Lightblocks" instance=ExtResource( 4 )]
@@ -101,6 +106,7 @@ transform/pos = Vector2( 0, 352 )
 
 [node name="bg" type="Sprite" parent="Level"]
 
+visibility/light_mask = 3
 transform/pos = Vector2( 581.5, 361 )
 transform/scale = Vector2( 0.5, 0.5 )
 z/z = -100
@@ -108,18 +114,46 @@ texture = ExtResource( 2 )
 
 [node name="PushableBlock" parent="Level" instance=ExtResource( 5 )]
 
+visibility/light_mask = 3
 transform/pos = Vector2( 504.6, 380.599 )
-transform/scale = Vector2( 1, 1 )
+
+[node name="LuzAmbiente" type="Light2D" parent="Level"]
+
+transform/pos = Vector2( 589.153, 359.142 )
+transform/scale = Vector2( 11.994, 7.55706 )
+enabled = true
+editor_only = false
+texture = ExtResource( 6 )
+offset = Vector2( 0, 0 )
+scale = 1.0
+color = Color( 1, 1, 1, 1 )
+energy = 0.15
+mode = 2
+range/height = 0.0
+range/z_min = -1024
+range/z_max = 1024
+range/layer_min = 0
+range/layer_max = 0
+range/item_mask = 2
+shadow/enabled = false
+shadow/color = Color( 0, 0, 0, 0 )
+shadow/buffer_size = 2048
+shadow/esm_multiplier = 80.0
+shadow/item_mask = 1
 
 [node name="Players" type="Node" parent="."]
 
-[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 6 )]
+[node name="Player" parent="Players" groups=[ "Player1" ] instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 288, 160 )
 
-[node name="Luz" parent="Players" instance=ExtResource( 7 )]
+[node name="Luz" parent="Players" instance=ExtResource( 8 )]
 
-transform/pos = Vector2( 160, 96 )
+transform/pos = Vector2( 711.917, 245.455 )
+
+[node name="LightTarget" type="Position2D" parent="Players" groups=[ "LightTarget" ]]
+
+script/script = ExtResource( 9 )
 
 [node name="Camera" type="Node" parent="."]
 
@@ -130,8 +164,8 @@ anchor_mode = 1
 rotating = false
 current = true
 zoom = Vector2( 1, 1 )
-limit/left = -10000000
-limit/top = -10000000
+limit/left = 0
+limit/top = 0
 limit/right = 10000000
 limit/bottom = 10000000
 drag_margin/h_enabled = true
@@ -143,5 +177,16 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = SubResource( 2 )
+
+[node name="StreamPlayer" type="StreamPlayer" parent="."]
+
+stream/stream = ExtResource( 10 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 10.0
+stream/autoplay = true
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
 
 

@@ -11,6 +11,7 @@ extents = Vector2( 16, 16 )
 
 [node name="1" type="Sprite" parent="."]
 
+visibility/light_mask = 3
 transform/pos = Vector2( 16, 16 )
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 32, 32 )
