@@ -5,14 +5,14 @@
 [ext_resource path="res://_JAM/lumi_big.png" type="Texture" id=3]
 [ext_resource path="res://Textures/whitebox.tex" type="Texture" id=4]
 
-[sub_resource type="ColorRamp" id=4]
+[sub_resource type="ColorRamp" id=1]
 
 offsets = FloatArray( 0, 0.513308, 1 )
 colors = ColorArray( 1, 0.658722, 0.175781, 1, 0.699219, 0.362711, 0.245819, 1, 1, 1, 1, 0.60851 )
 
-[sub_resource type="GDScript" id=1]
+[sub_resource type="GDScript" id=2]
 
-script/source = "extends Node2D\n\nvar cursor\nvar x = 0\nvar y = 0\n\nfunc _ready():\n\tcursor = get_node(\"cursor\")\n\tset_hidden(true)\n\tset_process(false)\n\topenOptions()\n\nfunc openOptions():\n\tset_hidden(false)\n\tset_process(true)\n\n#ta nojento fodase\nfunc _process(delta):\n\tif( InputSingleton.wasKeyPressedNow(\"ui_right\") ):\n\t\tx += 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_left\") ):\n\t\tx -= 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_down\") ):\n\t\ty += 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_up\") ):\n\t\ty -= 1\n\t\n\tif( x < 0 ):\n\t\tx = 0\n\telif( x > 3 ):\n\t\tx = 3\n\tif(y < 0 ):\n\t\ty = 0\n\telif( y > 3 ):\n\t\ty = 3\n\t\n\tcursor.set_pos( Vector2(-12,6) + Vector2(32*x,24*y) )\n\t\n\tif( InputSingleton.wasKeyPressedNow(\"Z\") ):\n\t\tvar inst = load(\"res://Levels/\"+ var2str(1 + x + y*4) +\".tscn\").instance()\n\t\tget_tree().get_root().get_node(\"IntroScreen\").queue_free()\n\t\tget_tree().get_root().add_child(inst)\n\t\n\n\n\n\n\n\n\n\n\n\n\n\n"
+script/source = "extends Node2D\n\nvar cursor\nvar x = 0\nvar y = 0\n\nfunc _ready():\n\tcursor = get_node(\"cursor\")\n\tset_hidden(true)\n\tset_process(false)\n\topenOptions()\n\nfunc openOptions():\n\tset_hidden(false)\n\tset_process(true)\n\n#ta nojento fodase\nfunc _process(delta):\n\tif( InputSingleton.wasKeyPressedNow(\"ui_right\") ):\n\t\tx += 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_left\") ):\n\t\tx -= 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_down\") ):\n\t\ty += 1\n\tif( InputSingleton.wasKeyPressedNow(\"ui_up\") ):\n\t\ty -= 1\n\t\n\tif( x < 0 ):\n\t\tx = 0\n\telif( x > 3 ):\n\t\tx = 3\n\tif(y < 0 ):\n\t\ty = 0\n\telif( y > 3 ):\n\t\ty = 3\n\t\n\tcursor.set_pos( Vector2(-12,6) + Vector2(32*x,24*y) )\n\t\n\tif( InputSingleton.wasKeyPressedNow(\"Z\") ):\n\t\tvar inst = load(\"res://Levels/\"+ var2str(1 + x + y*3) +\".tscn\").instance()\n\t\tget_tree().get_root().get_node(\"IntroScreen\").queue_free()\n\t\tget_tree().get_root().add_child(inst)\n\t\tget_tree().set_current_scene(inst)\n\t\n\n\n\n\n\n\n\n\n\n\n\n\n"
 
 [sub_resource type="Animation" id=3]
 
@@ -52,7 +52,7 @@ params/hue_variation = 0.0
 params/anim_speed_scale = 1.0
 params/anim_initial_pos = 0.0
 randomness/direction = 1.0
-color/color_ramp = SubResource( 4 )
+color/color_ramp = SubResource( 1 )
 
 [node name="Title" type="Node2D" parent="."]
 
@@ -119,9 +119,9 @@ max_lines_visible = -1
 
 [node name="Options" type="Node2D" parent="."]
 
-transform/pos = Vector2( 373.473, 329.208 )
+transform/pos = Vector2( 373.473, 333.73 )
 transform/scale = Vector2( 1.71842, 1.71842 )
-script/script = SubResource( 1 )
+script/script = SubResource( 2 )
 
 [node name="VBoxContainer" type="GridContainer" parent="Options"]
 

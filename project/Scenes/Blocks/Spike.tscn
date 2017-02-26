@@ -1,7 +1,9 @@
 [gd_scene load_steps=5 format=1]
 
-[ext_resource path="res://Spike.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Blocks/Spike.gd" type="Script" id=1]
 [ext_resource path="res://Textures/spike.tex" type="Texture" id=2]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

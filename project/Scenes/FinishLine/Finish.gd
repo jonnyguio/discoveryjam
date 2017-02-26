@@ -13,5 +13,6 @@ func finishLevel(obj):
 		var nextLevelResource = load(nextLevelPath)
 		var inst = nextLevelResource.instance()
 		get_tree().get_root().add_child(inst)
+		get_tree().set_current_scene(inst)		
 		get_tree().get_nodes_in_group("Camera")[0].free()
 		get_tree().get_root().get_node("Scenario").call_deferred("queue_free")

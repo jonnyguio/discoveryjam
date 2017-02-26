@@ -1,11 +1,13 @@
 [gd_scene load_steps=10 format=1]
 
-[ext_resource path="res://Player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Players/Player.gd" type="Script" id=1]
 [ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=2]
 [ext_resource path="res://Textures/body.tex" type="Texture" id=3]
 [ext_resource path="res://Textures/eye.tex" type="Texture" id=4]
 [ext_resource path="res://Textures/foot.tex" type="Texture" id=5]
 [ext_resource path="res://SFX/SampleLibrary.tres" type="SampleLibrary" id=6]
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

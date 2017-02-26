@@ -1,18 +1,25 @@
 [gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
-[ext_resource path="res://LevelSetter.gd" type="Script" id=2]
+[ext_resource path="res://Levels/LevelSetter.gd" type="Script" id=2]
 [ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=3]
 [ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=4]
-[ext_resource path="res://LightBlock.tscn" type="PackedScene" id=5]
-[ext_resource path="res://DarknessBlock.tscn" type="PackedScene" id=6]
-[ext_resource path="res://PushableBlock.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Blocks/LightBlock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Blocks/DarknessBlock.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Blocks/PushableBlock.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Textures/whitebox.tex" type="Texture" id=8]
-[ext_resource path="res://Finish.gd" type="Script" id=9]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Luz.tscn" type="PackedScene" id=11]
-[ext_resource path="res://LightTarget.gd" type="Script" id=12]
+[ext_resource path="res://Scenes/FinishLine/Finish.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Players/Player.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Players/Luz.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Players/LightTarget.gd" type="Script" id=12]
 [ext_resource path="res://_JAM/old city theme.ogg" type="AudioStream" id=13]
+
+
+
+
+
+
+
 
 [sub_resource type="RectangleShape2D" id=1]
 

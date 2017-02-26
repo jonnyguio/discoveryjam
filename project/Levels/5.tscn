@@ -1,15 +1,21 @@
 [gd_scene load_steps=11 format=1]
 
 [ext_resource path="res://Templates/onlyLight.tres" type="CanvasItemMaterial" id=1]
-[ext_resource path="res://LevelSetter.gd" type="Script" id=2]
-[ext_resource path="res://MainStreamPlayer.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/LevelSetter.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/MainStreamPlayer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Textures/castlevania-background-14.tex" type="Texture" id=4]
 [ext_resource path="res://Tilemaps/Tilemap.tres" type="TileSet" id=5]
 [ext_resource path="res://Textures/whitebox.tex" type="Texture" id=6]
-[ext_resource path="res://Player.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Luz.tscn" type="PackedScene" id=8]
-[ext_resource path="res://LightTarget.gd" type="Script" id=9]
-[ext_resource path="res://Camera2D.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/Players/Player.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Players/Luz.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Players/LightTarget.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Camera/Camera2D.tscn" type="PackedScene" id=10]
+
+
+
+
+
+
 
 [node name="Scenario" type="Node"]
 

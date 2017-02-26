@@ -5,6 +5,8 @@ const DARK_BLOCK = 2
 const PURE_DARK_BLOCK = 3
 const FINISH_BLOCK = 4
 const SPIKE_BLOCK = 5
+const PATH_BLOCKS_SCENES_RESOURCES = "res://Scenes/Blocks/"
+const PATH_FINISH_SCENE_RESOURCE = "res://Scenes/FinishLine/"
 
 # class member variables go here, for example:
 # var a = 2
@@ -27,10 +29,10 @@ func _ready():
 	setBlocks()
 
 
-onready var light_block_res = load("res://LightBlock.tscn")
-onready var dark_block_res = load("res://DarknessBlock.tscn")
-onready var finish_line_res = load("res://FinishLine.tscn")
-onready var spike_block_res = load("res://Spike.tscn")
+onready var light_block_res = load(PATH_BLOCKS_SCENES_RESOURCES + "LightBlock.tscn")
+onready var dark_block_res = load(PATH_BLOCKS_SCENES_RESOURCES + "DarknessBlock.tscn")
+onready var finish_line_res = load(PATH_FINISH_SCENE_RESOURCE + "FinishLine.tscn")
+onready var spike_block_res = load(PATH_BLOCKS_SCENES_RESOURCES + "Spike.tscn")
 
 func setBlocks():
 	for x in range( 0 , 100 ):
